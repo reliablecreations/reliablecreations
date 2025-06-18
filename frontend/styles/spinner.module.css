@@ -1,0 +1,20 @@
+/* components/Spinner.module.css */
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+.circle {
+  opacity: 0.25;
+}
+
+.path {
+  opacity: 0.75;
+}
+
+/* Keyframes for spinner rotation */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

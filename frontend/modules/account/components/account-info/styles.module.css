@@ -1,0 +1,86 @@
+.container {
+  font-size: 0.875rem;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  text-transform: uppercase;
+  color: var(--fg-base);
+}
+
+.currentInfo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  flex-basis: 0;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.currentInfoText {
+  font-weight: 600;
+}
+
+.editButton {
+  width: 100px;
+  min-height: 25px;
+  padding: 0.25rem 0;
+}
+
+.panel {
+  transition: max-height 300ms ease-in-out, opacity 300ms ease-in-out;
+  overflow: hidden;
+}
+
+.panelVisible {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.panelHidden {
+  max-height: 0;
+  opacity: 0;
+}
+
+.panelOverflow {
+  overflow: visible;
+}
+
+.badge {
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.saveButton {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .saveButton {
+    max-width: 140px;
+  }
+}

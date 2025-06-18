@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://backend:9000
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@postgres:5432/medusa-store
+      - REDIS_URL=redis://redis:6379
+      - NODE_ENV=development
+      - JWT_SECRET=your-jwt-secret
+      - COOKIE_SECRET=your-cookie-secret
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:14
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=medusa-store
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:

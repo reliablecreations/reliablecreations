@@ -1,0 +1,27 @@
+/* LineItemPrice.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem; /* gap-x-2 equivalent */
+  color: var(--text-muted, #6b7280);
+}
+
+.textLeft {
+  text-align: left;
+}
+
+.lineThrough {
+  text-decoration: line-through;
+  color: var(--text-muted-light, #9ca3af);
+}
+
+.textInteractive {
+  color: var(--text-interactive, #3b82f6); /* example interactive color */
+}
+
+.textBaseRegular {
+  font-weight: 400; /* or your regular font weight */
+  font-size: 13px; /* adjust as needed */
+}

@@ -1,0 +1,11 @@
+1. setup postgres
+2. set DB_NAME in .env
+3. run : npx medusa db:create
+4. run : npx medusa medusa db:migrate
+5. comment out REDIS_URL
+6. go to medusa-config.ts - admin.diseble = true and comment out admin configuration
+7. run : npx medusa user --email deepakvish7354@gmail.com --password 123123
+8. revert medusa-config.ts changes
+9. run : npm run build
+10. run : npm run dev
+11. visit : localhost:9000

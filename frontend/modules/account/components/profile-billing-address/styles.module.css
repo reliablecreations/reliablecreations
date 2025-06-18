@@ -1,0 +1,27 @@
+.form {
+  width: 100%;
+}
+
+.currentInfo {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.inputGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.nameGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.postalCodeGrid {
+  display: grid;
+  grid-template-columns: 144px 1fr;
+  gap: 0.5rem;
+}

@@ -1,0 +1,49 @@
+/* components/CartTemplate.module.css */
+
+.wrapper {
+  padding: 3rem 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .layout {
+    grid-template-columns: 1fr 360px;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 1.5rem 0;
+  gap: 1.5rem;
+}
+
+.right {
+  position: relative;
+}
+
+.stickyRight {
+  position: sticky;
+  top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.summaryBox {
+  background-color: white;
+  padding: 1.5rem 0;
+}

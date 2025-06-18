@@ -1,0 +1,128 @@
+.desktopView {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .desktopView {
+    display: block;
+  }
+}
+
+.header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.signedInText {
+  font-size: 0.875rem;
+  color: var(--fg-base);
+}
+
+.signedInEmail {
+  font-weight: 600;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.statsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  grid-column: 1;
+  grid-row: span 2;
+  flex: 1;
+}
+
+.statsRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.statGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.statTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.statValue {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.statNumber {
+  font-size: 1.875rem;
+  line-height: 1;
+}
+
+.statLabel {
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: var(--fg-subtle);
+}
+
+.ordersSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ordersHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.orderContainer {
+  background-color: #f9fafb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.orderInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  flex: 1;
+  font-size: 0.875rem;
+}
+
+.orderLabel {
+  font-weight: 600;
+}
+
+.orderButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orderButtonIcon {
+  transform: rotate(-90deg);
+}

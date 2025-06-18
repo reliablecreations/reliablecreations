@@ -1,0 +1,22 @@
+/* LineItemUnitPrice.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted, #6b7280);
+}
+
+.lineThrough {
+  text-decoration: line-through;
+}
+
+.textInteractive {
+  color: var(--text-interactive, #3b82f6);
+}
+
+.textBaseRegular {
+  font-weight: 400;
+  font-size: 13px;
+}

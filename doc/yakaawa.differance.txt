@@ -1,0 +1,2 @@
+1. instead of fetch region we will statically use from env
+

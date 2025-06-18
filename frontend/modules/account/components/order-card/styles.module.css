@@ -1,0 +1,90 @@
+.container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.orderId {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.orderInfo {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+  color: var(--fg-base);
+}
+
+.orderInfo:last-child {
+  border-right: none;
+}
+
+.orderInfoItem {
+  padding: 0 0.5rem;
+}
+
+.orderInfoItem:first-child {
+  padding-left: 0;
+}
+
+.orderInfoItem:last-child {
+  padding-right: 0;
+}
+
+.itemsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+@media (min-width: 640px) {
+  .itemsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.itemInfo {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--fg-base);
+}
+
+.itemTitle {
+  color: var(--fg-base);
+  font-weight: 600;
+}
+
+.itemQuantity {
+  margin-left: 0.5rem;
+}
+
+.moreItems {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.moreItemsText {
+  font-size: 0.875rem;
+  color: var(--fg-base);
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+}

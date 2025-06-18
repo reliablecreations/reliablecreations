@@ -1,0 +1,6 @@
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem; /* equivalent to gap-y-8 in Tailwind */
+}

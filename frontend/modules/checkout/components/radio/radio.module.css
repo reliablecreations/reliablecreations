@@ -1,0 +1,58 @@
+.radioButton {
+  position: relative;
+  display: flex;
+  height: 1.25rem;
+  width: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.radioCircle {
+  box-shadow: var(--shadow-borders-base);
+  background-color: var(--ui-bg-base);
+  display: flex;
+  height: 14px;
+  width: 14px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  transition: all;
+}
+
+.radioButton:hover .radioCircle {
+  box-shadow: var(--shadow-borders-strong-with-shadow);
+}
+
+.radioButton[data-state="checked"] .radioCircle {
+  background-color: var(--ui-bg-interactive);
+  box-shadow: var(--shadow-borders-interactive);
+}
+
+.radioButton:focus .radioCircle {
+  box-shadow: var(--shadow-borders-interactive-with-focus) !important;
+}
+
+.radioButton:disabled .radioCircle {
+  background-color: var(--ui-bg-disabled) !important;
+  box-shadow: var(--shadow-borders-base) !important;
+}
+
+.radioDot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radioDotInner {
+  background-color: var(--ui-bg-base);
+  box-shadow: var(--shadow-details-contrast-on-bg-interactive);
+  border-radius: 9999px;
+  height: 0.375rem;
+  width: 0.375rem;
+}
+
+.radioButton:disabled .radioDotInner {
+  background-color: var(--ui-fg-disabled);
+  box-shadow: none;
+}

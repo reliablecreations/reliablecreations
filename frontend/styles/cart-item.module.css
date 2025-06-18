@@ -1,0 +1,71 @@
+/* Item.module.css */
+
+.row {
+  width: 100%;
+  border-top: 10px solid transparent;
+  margin-bottom: 10px;
+}
+
+.row:first-child {
+  border-top: none;
+}
+
+.imageCell {
+  padding: 1rem;
+  padding-left: 0;
+  width: 6rem;
+}
+
+.imageLinkFull {
+  display: flex;
+  width: 6rem;
+}
+
+.imageLinkPreview {
+  display: flex;
+  width: 4rem;
+}
+
+.textLeft {
+  text-align: left;
+  width: 100%;
+}
+
+.title {
+  font-size: 15px;
+  color: var(--text-color, #000);
+}
+
+.options {
+  margin-top: 0.25rem;
+}
+
+.quantityWrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 7rem;
+}
+
+.input {
+  text-align: center;
+  max-width: 50px;
+}
+
+.priceCell {
+  padding-right: 0;
+}
+
+.pricePreview {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 100%;
+  justify-content: center;
+}
+
+.priceX {
+  display: flex;
+  gap: 0.25rem;
+  color: #6b7280;
+}

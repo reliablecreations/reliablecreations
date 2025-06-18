@@ -1,0 +1,40 @@
+.container {
+  background-color: white;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.titleDisabled {
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+
+.content {
+  display: flex;
+  align-items: start;
+  gap: 0.25rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.text {
+  width: 100%;
+}
+
+.textLabel {
+  margin-bottom: 0.25rem;
+}

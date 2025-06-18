@@ -1,0 +1,35 @@
+/* components/EmptyCartMessage.module.css */
+
+.wrapper {
+  padding: 12rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  text-align: center;
+  align-items: baseline;
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+
+.message {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+  max-width: 32rem;
+  color: #4b5563; /* Tailwind's gray-600 */
+}
+
+.link {
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: underline;
+  color: #2563eb; /* Tailwind's blue-600 */
+}

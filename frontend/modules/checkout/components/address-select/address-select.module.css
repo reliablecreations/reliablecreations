@@ -1,0 +1,89 @@
+.container {
+  position: relative;
+}
+
+.button {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  text-align: left;
+  background-color: white;
+  cursor: default;
+  border: 1px solid var(--ui-border-base);
+  border-radius: var(--radius-rounded);
+}
+
+.button:focus {
+  outline: none;
+  border-color: var(--ui-border-interactive);
+  box-shadow: 0 0 0 2px var(--ui-border-interactive);
+}
+
+.buttonText {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chevron {
+  transition: transform 0.2s;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.options {
+  position: absolute;
+  z-index: 20;
+  width: 100%;
+  overflow: auto;
+  background-color: white;
+  border: 1px solid var(--ui-border-base);
+  border-top: 0;
+  max-height: 15rem;
+}
+
+.option {
+  cursor: default;
+  user-select: none;
+  position: relative;
+  padding-left: 1.5rem;
+  padding-right: 2.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.option:hover {
+  background-color: rgb(249, 250, 251);
+}
+
+.optionContent {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.addressDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  text-align: left;
+}
+
+.company {
+  color: var(--ui-fg-base);
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 0.5rem;
+}

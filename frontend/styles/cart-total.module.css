@@ -1,0 +1,54 @@
+/* components/CartTotals.module.css */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280; /* subtle text */
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.discount,
+.giftCard {
+  color: #2563eb; /* interactive color (blue-ish) */
+}
+
+.separator {
+  height: 1px;
+  width: 100%;
+  border-bottom: 1px solid #e5e7eb;
+  margin: 1rem 0;
+}
+
+.totalRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.totalAmount {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.finalSeparator {
+  height: 1px;
+  width: 100%;
+  border-bottom: 1px solid #e5e7eb;
+  margin-top: 1rem;
+}

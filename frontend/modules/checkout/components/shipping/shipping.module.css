@@ -1,0 +1,82 @@
+.container {
+  background-color: white;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.titleDisabled {
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+
+.editButton {
+  color: var(--ui-fg-interactive);
+}
+
+.editButton:hover {
+  color: var(--ui-fg-interactive-hover);
+}
+
+.deliveryOptions {
+  padding-bottom: 2rem;
+}
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--ui-border-base);
+  border-radius: var(--radius-rounded);
+}
+
+.radioOption:hover {
+  box-shadow: var(--shadow-borders-interactive-with-active);
+}
+
+.radioOptionSelected {
+  border-color: var(--ui-border-interactive);
+}
+
+.radioOptionDisabled {
+  box-shadow: none !important;
+  cursor: not-allowed;
+}
+
+.radioContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.submitButton {
+  margin-top: 1.5rem;
+}
+
+.summary {
+  width: 33.333333%;
+}
+
+.summaryLabel {
+  margin-bottom: 0.25rem;
+}
+
+.divider {
+  margin-top: 2rem;
+}

@@ -1,0 +1,83 @@
+.container {
+  background-color: white;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.titleDisabled {
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+
+.editButton {
+  color: var(--ui-fg-interactive);
+}
+
+.editButton:hover {
+  color: var(--ui-fg-interactive-hover);
+}
+
+.content {
+  display: block;
+}
+
+.contentHidden {
+  display: none;
+}
+
+.paymentMethod {
+  display: flex;
+  flex-direction: column;
+  width: 33.333333%;
+}
+
+.paymentMethodLabel {
+  margin-bottom: 0.25rem;
+}
+
+.paymentDetails {
+  display: flex;
+  flex-direction: column;
+  width: 33.333333%;
+}
+
+.paymentDetailsLabel {
+  margin-bottom: 0.25rem;
+}
+
+.paymentDetailsContent {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.paymentIcon {
+  display: flex;
+  align-items: center;
+  height: 1.75rem;
+  width: fit-content;
+  padding: 0.5rem;
+  background-color: var(--ui-button-neutral-hover);
+}
+
+.submitButton {
+  margin-top: 1.5rem;
+}
+
+.divider {
+  margin-top: 2rem;
+}

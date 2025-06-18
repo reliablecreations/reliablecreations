@@ -1,0 +1,62 @@
+.container {
+  background-color: white;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.editButton {
+  color: var(--ui-fg-interactive);
+}
+
+.editButton:hover {
+  color: var(--ui-fg-interactive-hover);
+}
+
+.form {
+  padding-bottom: 2rem;
+}
+
+.billingSection {
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.addressSummary {
+  display: flex;
+  align-items: start;
+  gap: 2rem;
+}
+
+.addressColumn {
+  display: flex;
+  align-items: start;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.addressBlock {
+  display: flex;
+  flex-direction: column;
+  width: 33.333333%;
+}
+
+.addressLabel {
+  margin-bottom: 0.25rem;
+}
+
+.divider {
+  margin-top: 2rem;
+}

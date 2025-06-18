@@ -1,0 +1,34 @@
+/* components/DeleteButton.module.css */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem; /* similar to text-small-regular */
+}
+
+.button {
+  display: flex;
+  gap: 0.25rem;
+  color: #6b7280; /* subtle text - Tailwind's gray-500 */
+  cursor: pointer;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.button:hover {
+  color: #111827; /* base text - Tailwind's gray-900 */
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
