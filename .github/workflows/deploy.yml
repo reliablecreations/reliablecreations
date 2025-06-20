@@ -1,9 +1,12 @@
-name: Auto Deploy to EC2
+name: Auto Deploy to EC2 (Backend Only)
 
 on:
   push:
     branches:
       - main
+    paths:
+      - 'backend/**'          # Only trigger when files in /backend change
+      - '.github/workflows/**'  # (Optional) Allow workflow updates to trigger too
 
 jobs:
   deploy:
