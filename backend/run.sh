@@ -14,7 +14,7 @@ cp /reliablecreations/backend/.medusa/server/static/* ./static-dup
 npm install --force
 
 # Build the app
-npm run build
+NODE_OPTIONS="--max-old-space-size=4096" npm run build
 
 # Copy environment file into Medusa server
 cp .env .medusa/server
