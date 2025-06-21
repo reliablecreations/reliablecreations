@@ -33,6 +33,7 @@ module.exports = defineConfig({
   },
   admin: {
     vite: () => ({
+      disable: process.env.ADMIN_DISABLE === "true",
       server: {
         allowedHosts: allowedHosts
       },
