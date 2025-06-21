@@ -32,16 +32,16 @@ module.exports = defineConfig({
     },
   },
   admin: {
-    vite: () => ({
-      disable: process.env.ADMIN_DISABLE === "true",
-      server: {
-        allowedHosts: allowedHosts
-      },
-      optimizeDeps: {
-        include: ["qs"],
-      },
-    }),
-    backendUrl: process.env.ENV === "dev" ? "http://localhost:9000" : process.env.MEDUSA_BACKEND_URL,
+    disable: true,
+    // vite: () => ({
+    //   server: {
+    //     allowedHosts: allowedHosts
+    //   },
+    //   optimizeDeps: {
+    //     include: ["qs"],
+    //   },
+    // }),
+    // backendUrl: process.env.ENV === "dev" ? "http://localhost:9000" : process.env.MEDUSA_BACKEND_URL,
   },
   modules: [
     // {
