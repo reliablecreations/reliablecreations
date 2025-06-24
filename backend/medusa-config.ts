@@ -13,17 +13,6 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
   },
-  admin: {
-    vite: () => ({
-      server: {
-        allowedHosts: "*"
-      },
-      optimizeDeps: {
-        include: ["qs"],
-      },
-    }),
-    backendUrl: process.env.ENV === "dev" ? "http://localhost:9000" : process.env.MEDUSA_BACKEND_URL,
-  },
   modules: [
     {
       resolve: "./src/modules/review",
