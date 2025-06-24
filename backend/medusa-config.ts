@@ -1,72 +1,22 @@
-import { loadEnv, defineConfig } from "@medusajs/framework/utils";
-loadEnv(process.env.NODE_ENV || "development", process.cwd());
+import { loadEnv, defineConfig } from '@medusajs/framework/utils'
 
-const allowedHosts = process.env.ALLOWED_HOSTS?.split(",") || [];
+loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
 module.exports = defineConfig({
   projectConfig: {
-    redisUrl: process.env.REDIS_URL,
     databaseUrl: process.env.DATABASE_URL,
-    workerMode: "shared",
     http: {
-      storeCors:
-        process.env.ENV === "dev"
-          ? "http://localhost:9000"
-          : (process.env.STORE_CORS as string),
-      adminCors:
-        process.env.ENV === "dev"
-          ? "http://localhost:9000"
-          : (process.env.ADMIN_CORS as string),
-      authCors:
-        process.env.ENV === "dev"
-          ? "http://localhost:9000"
-          : (process.env.AUTH_CORS as string),
-      jwtSecret:
-        process.env.ENV === "dev"
-          ? "secret"
-          : (process.env.JWT_SECRET as string),
-      cookieSecret:
-        process.env.ENV === "dev"
-          ? "secret"
-          : (process.env.COOKIE_SECRET as string),
-    },
-  },
-  admin: {
-    disable: true,
-    // vite: () => ({
-    //   server: {
-    //     allowedHosts: allowedHosts
-    //   },
-    //   optimizeDeps: {
-    //     include: ["qs"],
-    //   },
-    // }),
-    // backendUrl: process.env.ENV === "dev" ? "http://localhost:9000" : process.env.MEDUSA_BACKEND_URL,
+      storeCors: process.env.STORE_CORS!,
+      adminCors: process.env.ADMIN_CORS!,
+      authCors: process.env.AUTH_CORS!,
+      jwtSecret: process.env.JWT_SECRET || "supersecret",
+      cookieSecret: process.env.COOKIE_SECRET || "supersecret",
+    }
   },
   modules: [
-    // {
-    //   resolve: "@medusajs/medusa/cache-redis",
-    //   options: {
-    //     redisUrl: process.env.REDIS_URL,
-    //   },
-    // },
     {
       resolve: "./src/modules/review",
     },
-    // {
-    //   resolve: "@medusajs/medusa/event-bus-redis",
-    //   options: {
-    //     redisUrl: process.env.REDIS_URL,
-    //   },
-    // },
-    // {
-    //   resolve: "@medusajs/medusa/workflow-engine-redis",
-    //   options: {
-    //     redis: {
-    //       url: process.env.REDIS_URL,
-    //     },
-    //   },
-    // },
     {
       resolve: "./src/modules/carousel",
     },
@@ -133,7 +83,6 @@ module.exports = defineConfig({
         ],
       },
     },
-
     {
       resolve: "@medusajs/medusa/fulfillment",
       options: {
@@ -162,5 +111,7 @@ module.exports = defineConfig({
         ],
       },
     },
-  ],
-});
+
+  ]
+
+})

@@ -2,8 +2,8 @@
 .env
 .DS_Store
 /uploads
+/public/*
 /node_modules
-/static
 yarn-error.log
 
 .idea
