@@ -43,7 +43,13 @@ export default function Header1({
               <div className="col-xl-2 col-lg-3">
                 <div className="logo">
                   <Link href="/">
-                    <img src="/assets/img/logo/logo.png" alt="logo" />
+                    <img
+                      src="/assets/img/logo/logo.png"
+                      style={{
+                        maxWidth: "80px",
+                      }}
+                      alt="logo"
+                    />
                   </Link>
                 </div>
               </div>
