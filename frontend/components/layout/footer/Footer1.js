@@ -196,9 +196,9 @@ export default function Footer1() {
                       Copyright {new Date().getFullYear()}{" "}
                       <Link href="/">©Reliable Creations</Link>. All rights
                       reserved. Developed by
-                      <Link href="https://themeforest.net/user/alithemes/portfolio">
+                      <Link href="https://www.sasahyog.com">
                         {" "}
-                        AliThemes
+                        Sasahyog Technologies
                       </Link>
                       .
                     </span>
