@@ -23,7 +23,7 @@ export default function Footer1() {
                     </div>
                     <div className="footer-content">
                       <p>
-                        Elegant pink origami design three <br /> dimensional
+                        Elegan t pink origami design three <br /> dimensional
                         view and decoration co-exist.
                         <br /> Great for adding a decorative touch to <br /> any
                         room’s decor.
@@ -42,9 +42,9 @@ export default function Footer1() {
                         <li>
                           <Link href="#">FAQs</Link>
                         </li>
-                        <li>
+                        {/* <li>
                           <Link href="/track">Ordering Tracking</Link>
-                        </li>
+                        </li> */}
                         <li>
                           <Link href="/contact">Contacts</Link>
                         </li>
@@ -123,17 +123,49 @@ export default function Footer1() {
                 <div className="col-lg-3 col-md-4">
                   <div className="footer-widget footer-col-5 mb-40">
                     <h4 className="footer-widget__title mb-30">
-                      Get Newsletter
+                      <i className="fas fa-address-card me-2"></i>
+                      Contact Info
                     </h4>
-                    <p>Get on the list and get 10% off your first order!</p>
-                    <div className="footer-widget__newsletter">
-                      <form action="#">
-                        <input type="email" placeholder="Enter email address" />
-                        <button className="footer-widget__fw-news-btn tpsecondary-btn">
-                          Subscribe Now
-                          <i className="fal fa-long-arrow-right" />
-                        </button>
-                      </form>
+                    <div className="footer-widget__contact">
+                      <div className="footer-widget__contact-item d-flex align-items-start mb-3">
+                        <div className="contact-icon-wrapper me-3 mt-1">
+                          <i className="far fa-map-marker-alt" />
+                        </div>
+                        <div className="contact-text">
+                          <span className="fw-semibold">Address:</span>
+                          <br />
+                          <span className="text-muted">
+                            123 Business Street, New York, NY 10001
+                          </span>
+                        </div>
+                      </div>
+                      <div className="footer-widget__contact-item d-flex align-items-start mb-3">
+                        <div className="contact-icon-wrapper me-3 mt-1">
+                          <i className="far fa-envelope" />
+                        </div>
+                        <div className="contact-text">
+                          <span className="fw-semibold">Email:</span>
+                          <br />
+                          <Link
+                            href="mailto:info@reliablecreations.com"
+                            className="text-decoration-none text-primary"
+                          >
+                            info@reliablecreations.com
+                          </Link>
+                        </div>
+                      </div>
+                      <div className="footer-widget__contact-item d-flex align-items-start">
+                        <div className="contact-icon-wrapper me-3 mt-1">
+                          <i className="far fa-clock" />
+                        </div>
+                        <div className="contact-text">
+                          <span className="fw-semibold">Hours:</span>
+                          <br />
+                          <span className="text-muted">
+                            Mon - Fri: 9:00 AM - 6:00 PM
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -162,8 +194,8 @@ export default function Footer1() {
                   <div className="footer-copyright__content">
                     <span>
                       Copyright {new Date().getFullYear()}{" "}
-                      <Link href="/">©Ninico</Link>. All rights reserved.
-                      Developed by
+                      <Link href="/">©Reliable Creations</Link>. All rights
+                      reserved. Developed by
                       <Link href="https://themeforest.net/user/alithemes/portfolio">
                         {" "}
                         AliThemes
