@@ -66,7 +66,7 @@ export default function Header1({
                         <i className="fal fa-shopping-cart" />
                         <CartShow />
                       </Link>
-                      <Link href="/login">
+                      <Link href="/sign-in">
                         <i className="fal fa-user" />
                       </Link>
                     </div>
