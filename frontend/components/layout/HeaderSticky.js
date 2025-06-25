@@ -83,13 +83,13 @@ export default function HeaderSticky({
             <div className="col-xl-4 col-lg-9">
               <div className="header-meta-info d-flex align-items-center justify-content-end">
                 <div className="header-meta__social  d-flex align-items-center">
-                  <button
+                  <Link
                     className="header-cart p-relative tp-cart-toggle"
-                    onClick={handleCartSidebar}
+                    href="/mycart"
                   >
                     <i className="fal fa-shopping-cart" />
                     <CartShow />
-                  </button>
+                  </Link>
                   <Link href="/sign-in">
                     <i className="fal fa-user" />
                   </Link>
