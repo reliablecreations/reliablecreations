@@ -27,7 +27,6 @@ export default async function Home() {
     <>
       <Layout headerStyle={1} footerStyle={1}>
         <Slider1 carousels={carousel} />
-        {/* <Category categories={categories} /> */}
         <ProductCatalog initialProducts={initialProducts} />
         <DealProduct1 />
         <Shop />
