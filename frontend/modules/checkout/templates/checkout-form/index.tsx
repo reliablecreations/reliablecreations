@@ -1,11 +1,11 @@
 import { HttpTypes } from "@medusajs/types";
-import { listCartShippingMethods } from "@/lib/data/fulfillment";
-import { listCartPaymentMethods } from "@/lib/data/payment";
-import Addresses from "@/modules/checkout/components/addresses";
+import styles from "./checkout-form.module.css";
 import Review from "@/modules/checkout/components/review";
+import { listCartPaymentMethods } from "@/lib/data/payment";
 import Payment from "@/modules/checkout/components/payment";
 import Shipping from "@/modules/checkout/components/shipping";
-import styles from "./checkout-form.module.css";
+import Addresses from "@/modules/checkout/components/addresses";
+import { listCartShippingMethods } from "@/lib/data/fulfillment";
 
 export default async function CheckoutForm({
   cart,
@@ -27,9 +27,6 @@ export default async function CheckoutForm({
 
   return (
     <div className={styles.container}>
-      {JSON.stringify({
-        shippingMethods,
-      })}
       <Addresses cart={cart} customer={customer} />
       <Shipping cart={cart} availableShippingMethods={shippingMethods} />
       <Payment cart={cart} availablePaymentMethods={paymentMethods} />

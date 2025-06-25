@@ -94,7 +94,7 @@ const Addresses = ({
               </div>
             )}
             <SubmitButton
-              className="mt-6"
+              className={styles.submitButton}
               data-testid="submit-address-button"
               disabled={isLoading}
             >

@@ -60,3 +60,13 @@
 .divider {
   margin-top: 2rem;
 }
+
+.submitButton {
+  margin-top: 1rem;
+  background-color: black;
+  color: white;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}

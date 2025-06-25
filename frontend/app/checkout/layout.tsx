@@ -1,5 +1,6 @@
 import { BiChevronDown } from "react-icons/bi";
 import Link from "next/link";
+import styles from "./layout.module.css";
 
 export default function CheckoutLayout({
   children,
@@ -7,33 +8,32 @@ export default function CheckoutLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="w-full bg-white relative small:min-h-screen">
-      <div className="h-16 bg-white border-b ">
-        <nav className="flex h-full items-center content-container justify-between">
+    <div className={styles.container}>
+      <div className={styles.navContainer}>
+        <nav className={styles.nav}>
           <Link
-            href="/cart"
-            className="text-small-semi text-ui-fg-base flex items-center gap-x-2 uppercase flex-1 basis-0"
+            href="/mycart"
+            className={styles.backLink}
             data-testid="back-to-cart-link"
           >
-            <BiChevronDown className="rotate-90" size={16} />
-            <span className="mt-px hidden small:block txt-compact-plus text-ui-fg-subtle hover:text-ui-fg-base ">
+            <BiChevronDown className={styles.backIcon} size={16} />
+            <span className={`${styles.backText} ${styles.backTextDesktop}`}>
               Back to shopping cart
             </span>
-            <span className="mt-px block small:hidden txt-compact-plus text-ui-fg-subtle hover:text-ui-fg-base">
+            <span className={`${styles.backText} ${styles.backTextMobile}`}>
               Back
             </span>
           </Link>
-          <Link
-            href="/"
-            className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
-            data-testid="store-link"
-          >
-            Yakaawa
+          <Link href="/" className={styles.storeLink} data-testid="store-link">
+            Reliable Creations
           </Link>
-          <div className="flex-1 basis-0" />
+          <div className={styles.spacer} />
         </nav>
       </div>
-      <div className="relative" data-testid="checkout-container">
+      <div
+        className={styles.checkoutContainer}
+        data-testid="checkout-container"
+      >
         {children}
       </div>
     </div>
