@@ -4,6 +4,7 @@ import { HttpTypes } from "@medusajs/types";
 import { Button } from "@medusajs/ui";
 import { isEqual } from "lodash";
 import React, { useEffect, useMemo, useState } from "react";
+import styles from "./add-to-cart-btn.module.css";
 
 type CartButtonProps = {
   product: HttpTypes.StoreProduct;
@@ -117,28 +118,27 @@ const AddToCartButton = ({
   };
 
   return (
-    <div className="grid">
-      <Button
-        onClick={handleAddToCart}
-        disabled={
-          !inStock ||
-          !selectedVariant ||
-          !!disabled ||
-          isAdding ||
-          !isValidVariant
-        }
-        className="w-full border border-black self-start hover:bg-red-700 hover:text-white shadow-none"
-        data-testid="add-product-button"
-      >
+    <Button
+      onClick={handleAddToCart}
+      disabled={
+        !inStock ||
+        !selectedVariant ||
+        !!disabled ||
+        isAdding ||
+        !isValidVariant
+      }
+      className={styles.addToCartButton}
+      data-testid="add-product-button"
+    >
+      <span className={isAdding ? styles.loadingText : ""}>
         {!selectedVariant && !options
           ? "Select variant"
           : !inStock || !isValidVariant
           ? "Out of stock"
           : "Add to Cart"}
-
         {isAdding && "..."}
-      </Button>
-    </div>
+      </span>
+    </Button>
   );
 };
 

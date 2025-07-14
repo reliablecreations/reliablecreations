@@ -46,9 +46,7 @@ export default function ProductCard({
         </div>
         <div className="tpproduct__ratingarea">
           <div className="d-flex align-items-center justify-content-between">
-            <div className="tpproduct__rating">
-              <AddToCartButton product={product} countryCode={countryCode} />
-            </div>
+            <AddToCartButton product={product} countryCode={countryCode} />
           </div>
         </div>
       </div>

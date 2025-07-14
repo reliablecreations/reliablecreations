@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
+import Search from "../store-front/search";
 
 export default function Sidebar({ isMobileMenu, handleMobileMenu }) {
   return (
@@ -13,12 +14,6 @@ export default function Sidebar({ isMobileMenu, handleMobileMenu }) {
           <span className="tpsideinfo__search-title mb-20">
             What Are You Looking For?
           </span>
-          <form action="#">
-            <input type="text" placeholder="Search Products..." />
-            <button>
-              <i className="fal fa-search" />
-            </button>
-          </form>
         </div>
         <div className="tpsideinfo__nabtab">
           {/* <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">

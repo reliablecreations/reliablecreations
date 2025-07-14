@@ -1,8 +1,15 @@
 "use client";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useMediaQuery } from "react-responsive";
 
-export default function Search() {
+interface SearchProps {
+  mobileonly?: boolean;
+}
+
+export default function Search({ mobileonly }: SearchProps) {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
   const router = useRouter();
   const searchParams = useSearchParams();
   const [q, setQ] = useState(searchParams.get("q") || "");
@@ -17,30 +24,77 @@ export default function Search() {
     router.push(`/search`);
   };
 
-  return (
-    <div className="header-search-bar">
-      <form onSubmit={handleSearch}>
-        <div className="search-info p-relative">
-          <button className="header-search-icon">
-            <i className="fal fa-search" />
-          </button>
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-          />
-          {q && (
-            <button
-              type="button"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-              onClick={clearSearch}
-            >
-              <i className="fal fa-times" />
+  if (isMobile && mobileonly)
+    return (
+      <div className="header-search-bar px-2 pb-2">
+        <form onSubmit={handleSearch}>
+          <div className="search-info p-relative">
+            <button className="header-search-icon">
+              <i className="fal fa-search" />
             </button>
-          )}
-        </div>
-      </form>
-    </div>
-  );
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+            />
+            {q && (
+              <button
+                type="button"
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  color: "#000",
+                  cursor: "pointer",
+                  background: "white",
+                  padding: "5px",
+                }}
+                onClick={clearSearch}
+              >
+                <i className="fal fa-times" />
+              </button>
+            )}
+          </div>
+        </form>
+      </div>
+    );
+
+  if (!isMobile && !mobileonly)
+    return (
+      <div className="header-search-bar">
+        <form onSubmit={handleSearch}>
+          <div className="search-info p-relative">
+            <button className="header-search-icon">
+              <i className="fal fa-search" />
+            </button>
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+            />
+            {q && (
+              <button
+                type="button"
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  color: "#000",
+                  cursor: "pointer",
+                  background: "white",
+                  padding: "5px",
+                }}
+                onClick={clearSearch}
+              >
+                <i className="fal fa-times" />
+              </button>
+            )}
+          </div>
+        </form>
+      </div>
+    );
 }

@@ -1,0 +1,68 @@
+.addToCartButton {
+  width: 100%;
+  padding: 10px 30px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid var(--tp-text-primary);
+  background-color: var(--tp-text-primary);
+  color: var(--tp-common-white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 45px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.addToCartButton:hover:not(:disabled) {
+  background-color: #b50833;
+  color: var(--tp-common-white);
+  border-color: #b50833;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(181, 8, 51, 0.3);
+}
+
+.addToCartButton:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(181, 8, 51, 0.3);
+}
+
+.addToCartButton:disabled {
+  background-color: var(--tp-grey-2);
+  color: var(--tp-grey-1);
+  border-color: var(--tp-grey-3);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.addToCartButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(213, 18, 67, 0.2);
+}
+
+.loadingText {
+  opacity: 0.7;
+}
+
+/* Animation for loading state */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.addToCartButton:disabled .loadingText {
+  animation: pulse 1.5s ease-in-out infinite;
+}

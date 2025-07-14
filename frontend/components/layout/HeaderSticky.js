@@ -1,6 +1,7 @@
 import Link from "next/link";
 import CartShow from "../elements/CartShow";
 import WishListShow from "../elements/WishListShow";
+import Search from "../store-front/search";
 
 export default function HeaderSticky({
   scroll,
@@ -95,7 +96,7 @@ export default function HeaderSticky({
                   </Link>
                 </div>
                 <div className="header-meta__search-5 ml-25">
-                  <div className="header-search-bar-5">
+                  {/* <div className="header-search-bar-5">
                     <form action="#">
                       <div className="search-info-5 p-relative">
                         <button className="header-search-icon-5">
@@ -104,7 +105,8 @@ export default function HeaderSticky({
                         <input type="text" placeholder="Search products..." />
                       </div>
                     </form>
-                  </div>
+                  </div> */}
+                  <Search />
                 </div>
               </div>
             </div>

@@ -5,6 +5,7 @@ import Slider1 from "@/components/sections/Slider1";
 import { filterProducts } from "@/lib/data/products";
 import DealProduct1 from "@/components/sections/DealProduct1";
 import ProductCatalog from "@/components/sections/ProductCatalog";
+import Search from "@/components/store-front/search";
 
 export const metadata = {
   title: "Reliable Creations - Premium E-commerce Store",
@@ -25,7 +26,13 @@ export default async function Home() {
 
   return (
     <>
-      <Layout headerStyle={1} footerStyle={1}>
+      <Layout
+        headerStyle={1}
+        footerStyle={1}
+        headTitle="Home"
+        breadcrumbTitle="Home"
+      >
+        <Search mobileonly />
         <Slider1 carousels={carousel} />
         <ProductCatalog initialProducts={initialProducts} />
         <DealProduct1 />
