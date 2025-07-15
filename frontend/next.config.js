@@ -20,6 +20,12 @@ const nextConfig = {
         hostname: "myckc.s3.us-east-1.amazonaws.com",
         pathname: "/**",
       },
+      {
+        port: "",
+        protocol: "https",
+        hostname: "reliablecreations.s3.eu-north-1.amazonaws.com",
+        pathname: "/**",
+      },
     ],
   },
 };

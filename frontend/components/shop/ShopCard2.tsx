@@ -3,6 +3,9 @@ import PreviewPrice from "./price";
 import { HttpTypes } from "@medusajs/types";
 import AddToCartButton from "./AddToCartBtn";
 import { getProductPrice } from "@/lib/util/get-product-price";
+import ProductImage from "./ProductImage";
+import { getProductImageAlt } from "@/lib/util/image-utils";
+import styles from "@/styles/product-card.module.css";
 
 export default function ProductCard({
   product,
@@ -18,24 +21,27 @@ export default function ProductCard({
   const { cheapestPrice } = getProductPrice({
     product,
   });
-  const initialImage = product.thumbnail || product.images?.[0]?.url;
+
   return (
     <div className="col">
       <div className="tpproduct tpproductitem mb-15 p-relative">
         <div className="tpproduct__thumb">
           <div className="tpproduct__thumbitem p-relative">
             <Link href={`/product/${product.handle}`}>
-              <img src={initialImage} alt="product-thumb" />
-              <img
-                className="thumbitem-secondary"
-                src={initialImage}
-                alt="product-thumb"
+              <ProductImage
+                thumbnail={product.thumbnail}
+                images={product.images}
+                size="medium"
+                isFeatured={isFeatured}
+                className={styles["product-card-thumbnail"]}
+                priority={isFeatured}
+                alt={getProductImageAlt(product)}
               />
             </Link>
           </div>
         </div>
         <div className="tpproduct__content-area">
-          <h3 className="tpproduct__title mb-5">
+          <h3 className="tpproduct__title mb-5 text-capitalize">
             <Link href={`/product/${product.handle}`}>{product.title}</Link>
           </h3>
           <div className="tpproduct__priceinfo p-relative">

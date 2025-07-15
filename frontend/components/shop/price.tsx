@@ -1,31 +1,35 @@
-import { Text, clx } from "@medusajs/ui"
+import { Text } from "@medusajs/ui";
 //@ts-ignore
-import { VariantPrice } from "types/global"
+import { VariantPrice } from "types/global";
+import styles from "./price.module.css";
 
-export default function PreviewPrice({ price,className }: { price: VariantPrice,className?:string }) {
+export default function PreviewPrice({
+  price,
+  className,
+}: {
+  price: VariantPrice;
+  className?: string;
+}) {
   if (!price) {
-    return null
+    return null;
   }
 
   return (
-    <>
+    <div className="d-flex align-items-center gap-2">
       <Text
-        className={clx("md:text-lg text-xs font-semibold !text-red-500", {
-          "text-ui-fg-interactive----": price.price_type === "sale"
-        },className)}
+        className={`${styles.price} ${
+          price.price_type === "sale" ? styles.sale : ""
+        } ${className || ""}`}
         data-testid="price"
       >
         {price.calculated_price}
       </Text>
 
       {price.price_type === "sale" && (
-        <Text
-          className="line-through text-gray-400 text-xs md:text-md"
-          data-testid="original-price"
-        >
+        <Text className={styles.originalPrice} data-testid="original-price">
           {price.original_price}
         </Text>
       )}
-    </>
-  )
+    </div>
+  );
 }

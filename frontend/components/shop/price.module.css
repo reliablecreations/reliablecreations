@@ -1,0 +1,26 @@
+.price {
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 600; /* font-semibold */
+  color: #ef4444; /* !text-red-500 */
+}
+
+.price.sale {
+  color: var(--ui-fg-interactive); /* text-ui-fg-interactive---- */
+}
+
+.originalPrice {
+  text-decoration: line-through; /* line-through */
+  color: #9ca3af; /* text-gray-400 */
+  font-size: 0.75rem; /* text-xs */
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .price {
+    font-size: 1.125rem; /* md:text-lg */
+  }
+
+  .originalPrice {
+    font-size: 1rem; /* md:text-md */
+  }
+}

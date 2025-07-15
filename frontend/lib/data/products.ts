@@ -1,14 +1,14 @@
 import { sdk } from "../config"
 export const filterProducts = async ({
     q,
-    minPrice,
-    maxPrice,
+    minPrice = "0",
+    maxPrice = "1000000000",
     category_handle,
     pageParam = 1,
 }: {
     q: string
-    minPrice: string
-    maxPrice: string
+    minPrice?: string
+    maxPrice?: string
     category_handle: string
     pageParam: number
 }) => {

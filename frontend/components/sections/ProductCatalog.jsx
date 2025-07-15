@@ -85,9 +85,9 @@ export default function ProductCatalog({ initialProducts = [] }) {
           </div>
           <div>
             <div>
-              <div className="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1">
+              <div className="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-2">
                 {data.map((item) => (
-                  <ShopCard2 product={item} countryCode={countryCode} />
+                  <ShopCard2 Card2 product={item} countryCode={countryCode} />
                 ))}
               </div>
             </div>
