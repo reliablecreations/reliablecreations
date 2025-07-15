@@ -26,12 +26,7 @@ export default async function Home() {
 
   return (
     <>
-      <Layout
-        headerStyle={1}
-        footerStyle={1}
-        headTitle="Home"
-        breadcrumbTitle="Home"
-      >
+      <Layout headerStyle={1} footerStyle={1}>
         <Search mobileonly />
         <Slider1 carousels={carousel} />
         <ProductCatalog initialProducts={initialProducts} />

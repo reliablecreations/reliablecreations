@@ -13,13 +13,21 @@ import Header3 from "./header/Header3";
 import Header4 from "./header/Header4";
 import Header5 from "./header/Header5";
 
+interface LayoutProps {
+  headerStyle?: number;
+  footerStyle?: number;
+  headTitle?: string;
+  breadcrumbTitle?: string;
+  children: React.ReactNode;
+}
+
 export default function Layout({
   headerStyle,
   footerStyle,
   headTitle,
   breadcrumbTitle,
   children,
-}) {
+}: LayoutProps) {
   const [scroll, setScroll] = useState(0);
   // Mobile Menu
   const [isMobileMenu, setMobileMenu] = useState(false);
@@ -31,14 +39,18 @@ export default function Layout({
 
   useEffect(() => {
     const WOW = require("wowjs");
+    // @ts-ignore
     window.wow = new WOW.WOW({
       live: false,
     });
+    // @ts-ignore
     window.wow.init();
 
     document.addEventListener("scroll", () => {
       const scrollCheck = window.scrollY > 100;
+      // @ts-ignore
       if (scrollCheck !== scroll) {
+        // @ts-ignore
         setScroll(scrollCheck);
       }
     });
