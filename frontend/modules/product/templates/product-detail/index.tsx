@@ -111,6 +111,7 @@ const ProductTemplate = ({ data }: ProductTemplateProps) => {
     }
   };
   const decrementQuantity = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
+
   const inStock = useMemo(() => {
     // If we don't manage inventory, we can always add to cart
     if (selectedVariant && !selectedVariant.manage_inventory) {
@@ -183,7 +184,7 @@ const ProductTemplate = ({ data }: ProductTemplateProps) => {
             <div className="col-lg-5 col-md-7">
               <div className="tpproduct-details__content tpproduct-details__sticky">
                 <div className="tpproduct-details__tag-area d-flex align-items-center mb-5">
-                  <span className="tpproduct-details__tag">Dress</span>
+                  <span className="tpproduct-details__tag">Wooden</span>
                   {/* <div className="tpproduct-details__rating">
                       <Link href="#">
                         <i className="fas fa-star" />
@@ -198,7 +199,12 @@ const ProductTemplate = ({ data }: ProductTemplateProps) => {
                     <a className="tpproduct-details__reviewers">10 Reviews</a> */}
                 </div>
                 <div className="tpproduct-details__title-area d-flex align-items-center flex-wrap mb-5">
-                  <h3 className="tpproduct-details__title">{data?.title}</h3>
+                  <h3 className="tpproduct-details__title">
+                    {data?.title
+                      ? data?.title?.charAt(0)?.toUpperCase() +
+                        data?.title?.slice(1)
+                      : ""}
+                  </h3>
                   <span className="tpproduct-details__stock">In Stock</span>
                 </div>
                 <div className="tpproduct-details__pera">

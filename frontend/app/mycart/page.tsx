@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import { retrieveCart } from "@/lib/data/cart";
+import Layout from "@/components/layout/Layout";
 import CartTemplate from "@/modules/cart/templates";
 import { retrieveCustomer } from "@/lib/data/customer";
 import EmptyCartMessage from "@/modules/cart/components/empty-cart-message";
-import Layout from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
   title: "Cart",
