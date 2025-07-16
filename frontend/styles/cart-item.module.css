@@ -2,18 +2,18 @@
 
 .row {
   width: 100%;
-  border-top: 10px solid transparent;
-  margin-bottom: 10px;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.row:first-child {
-  border-top: none;
+.row:last-child {
+  border-bottom: none;
 }
 
 .imageCell {
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   padding-left: 0;
   width: 6rem;
+  vertical-align: top;
 }
 
 .imageLinkFull {
@@ -29,15 +29,23 @@
 .textLeft {
   text-align: left;
   width: 100%;
+  padding: 1rem 0.5rem;
+  vertical-align: top;
 }
 
 .title {
   font-size: 15px;
   color: var(--text-color, #000);
+  margin-bottom: 0.25rem;
 }
 
 .options {
   margin-top: 0.25rem;
+}
+
+.quantityCell {
+  padding: 1rem 0.5rem;
+  vertical-align: top;
 }
 
 .quantityWrapper {
@@ -53,7 +61,10 @@
 }
 
 .priceCell {
+  padding: 1rem 0.5rem;
   padding-right: 0;
+  vertical-align: top;
+  text-align: right;
 }
 
 .pricePreview {
@@ -68,4 +79,137 @@
   display: flex;
   gap: 0.25rem;
   color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+/* Mobile Card Styles */
+.mobileCard {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  display: none;
+}
+
+.mobileCardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mobileImageLink {
+  display: flex;
+  width: 4rem;
+  flex-shrink: 0;
+}
+
+.mobileProductInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.mobileTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color, #000);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.mobileCardBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.mobileQuantitySection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobileQuantityWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mobileInput {
+  text-align: center;
+  max-width: 60px;
+}
+
+.mobilePriceSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.mobileUnitPrice {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.mobileTotalPrice {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .row {
+    display: none;
+  }
+
+  .mobileCard {
+    display: block;
+  }
+
+  .imageCell {
+    width: 4rem;
+  }
+
+  .imageLinkFull {
+    width: 4rem;
+  }
+
+  .quantityWrapper {
+    width: 6rem;
+  }
+
+  .input {
+    max-width: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mobileCardHeader {
+    gap: 0.75rem;
+  }
+
+  .mobileImageLink {
+    width: 3rem;
+  }
+
+  .mobileTitle {
+    font-size: 14px;
+  }
+
+  .mobileCardBody {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .mobileQuantitySection {
+    order: 2;
+  }
+
+  .mobilePriceSection {
+    order: 1;
+    align-items: flex-start;
+  }
 }

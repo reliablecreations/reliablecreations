@@ -32,7 +32,13 @@ const Summary = ({ cart }: SummaryProps) => {
       {/* <Divider /> */}
       <CartTotals totals={cart} />
       <Link href={"/checkout?step=" + step} data-testid="checkout-button">
-        <Button className="w-full h-10">Go to checkout</Button>
+        <button
+          type="button"
+          className="btn btn-danger btn-md w-100"
+          style={{ backgroundColor: "#d51243", borderColor: "#d51243" }}
+        >
+          Go to checkout
+        </button>
       </Link>
     </div>
   );

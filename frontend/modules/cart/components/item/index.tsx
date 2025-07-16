@@ -1,6 +1,6 @@
 "use client";
 
-import { Table, Text, clx, Input } from "@medusajs/ui";
+import { Text, clx, Input } from "@medusajs/ui";
 import { updateLineItem } from "@/lib/data/cart";
 import { HttpTypes } from "@medusajs/types";
 import { useState } from "react";
@@ -45,9 +45,10 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
   const maxQtyFromInventory = 10;
   const maxQuantity = item.variant?.manage_inventory ? 10 : maxQtyFromInventory;
 
-  return (
-    <Table.Row className={styles.row} data-testid="product-row">
-      <Table.Cell className={styles.imageCell}>
+  // Desktop Table Row
+  const TableRow = () => (
+    <tr className={styles.row} data-testid="product-row">
+      <td className={styles.imageCell}>
         <Link
           href={`/product/${item.product_handle}`}
           className={
@@ -60,17 +61,17 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
             size="square"
           />
         </Link>
-      </Table.Cell>
+      </td>
 
-      <Table.Cell className={styles.textLeft}>
+      <td className={styles.textLeft}>
         <Text className={styles.title} data-testid="product-title">
           {item.product_title}
         </Text>
         <LineItemOptions variant={item.variant} data-testid="product-variant" />
-      </Table.Cell>
+      </td>
 
       {type === "full" && (
-        <Table.Cell>
+        <td className={styles.quantityCell}>
           <div className={styles.quantityWrapper}>
             <DeleteButton id={item.id} data-testid="product-delete-button" />
             <Input
@@ -89,20 +90,20 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
             {updating && <Spinner />}
           </div>
           <ErrorMessage error={error} data-testid="product-error-message" />
-        </Table.Cell>
+        </td>
       )}
 
       {type === "full" && (
-        <Table.Cell className={styles.priceCell}>
+        <td className={styles.priceCell}>
           <LineItemUnitPrice
             item={item}
             style="tight"
             currencyCode={currencyCode}
           />
-        </Table.Cell>
+        </td>
       )}
 
-      <Table.Cell className={styles.priceCell}>
+      <td className={styles.priceCell}>
         <span className={type === "preview" ? styles.pricePreview : undefined}>
           {type === "preview" && (
             <span className={styles.priceX}>
@@ -120,8 +121,86 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
             currencyCode={currencyCode}
           />
         </span>
-      </Table.Cell>
-    </Table.Row>
+      </td>
+    </tr>
+  );
+
+  // Mobile Card
+  const MobileCard = () => (
+    <div className={styles.mobileCard} data-testid="product-row">
+      <div className={styles.mobileCardHeader}>
+        <Link
+          href={`/product/${item.product_handle}`}
+          className={styles.mobileImageLink}
+        >
+          <Thumbnail
+            thumbnail={item.thumbnail}
+            images={item.variant?.product?.images}
+            size="square"
+          />
+        </Link>
+        <div className={styles.mobileProductInfo}>
+          <Text className={styles.mobileTitle} data-testid="product-title">
+            {item.product_title}
+          </Text>
+          <LineItemOptions
+            variant={item.variant}
+            data-testid="product-variant"
+          />
+        </div>
+        <DeleteButton id={item.id} data-testid="product-delete-button" />
+      </div>
+
+      <div className={styles.mobileCardBody}>
+        {type === "full" && (
+          <div className={styles.mobileQuantitySection}>
+            <div className={styles.mobileQuantityWrapper}>
+              <Input
+                type="number"
+                value={item.quantity}
+                className={styles.mobileInput}
+                onChange={(value) => {
+                  if (
+                    !isNaN(parseInt(value.target.value)) &&
+                    parseInt(value.target.value) <= 100
+                  ) {
+                    changeQuantity(parseInt(value.target.value));
+                  }
+                }}
+              />
+              {updating && <Spinner />}
+            </div>
+            <ErrorMessage error={error} data-testid="product-error-message" />
+          </div>
+        )}
+
+        <div className={styles.mobilePriceSection}>
+          {type === "full" && (
+            <div className={styles.mobileUnitPrice}>
+              <LineItemUnitPrice
+                item={item}
+                style="tight"
+                currencyCode={currencyCode}
+              />
+            </div>
+          )}
+          <div className={styles.mobileTotalPrice}>
+            <LineItemPrice
+              item={item}
+              style="tight"
+              currencyCode={currencyCode}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <>
+      <TableRow />
+      <MobileCard />
+    </>
   );
 };
 
