@@ -46,8 +46,8 @@ const Addresses = ({
       setIsLoading(true);
       setError(null);
       await setAddresses(null, formData);
-      // router.push(pathname + "?step=delivery");
-      window.location.reload();
+      router.push(pathname + "?step=delivery");
+      // window.location.reload();
     } catch (err: any) {
       setError(err.message);
     } finally {
