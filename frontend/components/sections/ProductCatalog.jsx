@@ -47,7 +47,7 @@ export default function ProductCatalog({ initialProducts = [] }) {
 
   return (
     <>
-      <section className="product-area pt-95 pb-70">
+      <section className="product-area pt-40 pb-40">
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-12">

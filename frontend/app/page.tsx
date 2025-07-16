@@ -18,13 +18,13 @@ export default async function Home() {
   const carousel = await getCarousel();
   // const categories = await listCategories();
 
-  const initialProducts = await filterProducts({
-    q: "",
-    minPrice: "0",
-    maxPrice: "10000",
-    category_handle: "all",
-    pageParam: 1,
-  });
+  // const initialProducts = await filterProducts({
+  //   q: "",
+  //   minPrice: "0",
+  //   maxPrice: "10000",
+  //   category_handle: "all",
+  //   pageParam: 1,
+  // });
 
   const products = await listProductsWithSort({
     page: 1,

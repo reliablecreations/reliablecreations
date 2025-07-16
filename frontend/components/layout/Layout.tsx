@@ -57,63 +57,15 @@ export default function Layout({
   }, []);
   return (
     <>
-      {/* <PageHead headTitle={headTitle} /> */}
       <DataBg />
-      {!headerStyle && (
-        <Header1
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isCartSidebar={isCartSidebar}
-          handleCartSidebar={handleCartSidebar}
-        />
-      )}
+      <Header1
+        scroll={scroll}
+        isMobileMenu={isMobileMenu}
+        handleMobileMenu={handleMobileMenu}
+        isCartSidebar={isCartSidebar}
+        handleCartSidebar={handleCartSidebar}
+      />
 
-      {headerStyle == 1 ? (
-        <Header1
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isCartSidebar={isCartSidebar}
-          handleCartSidebar={handleCartSidebar}
-        />
-      ) : null}
-      {headerStyle == 2 ? (
-        <Header2
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isCartSidebar={isCartSidebar}
-          handleCartSidebar={handleCartSidebar}
-        />
-      ) : null}
-      {headerStyle == 3 ? (
-        <Header3
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isCartSidebar={isCartSidebar}
-          handleCartSidebar={handleCartSidebar}
-        />
-      ) : null}
-      {headerStyle == 4 ? (
-        <Header4
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isCartSidebar={isCartSidebar}
-          handleCartSidebar={handleCartSidebar}
-        />
-      ) : null}
-      {headerStyle == 5 ? (
-        <Header5
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isCartSidebar={isCartSidebar}
-          handleCartSidebar={handleCartSidebar}
-        />
-      ) : null}
       <Sidebar
         isMobileMenu={isMobileMenu}
         handleMobileMenu={handleMobileMenu}

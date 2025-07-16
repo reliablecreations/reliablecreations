@@ -12,7 +12,7 @@ export default function HeaderMobSticky({
     <>
       <div
         id="header-mob-sticky"
-        className={`tp-md-lg-header d-md-none pt-20 pb-20 ${
+        className={`tp-md-lg-header d-md-none pt-10 pb-10 ${
           scroll ? "header-sticky" : ""
         }`}
       >
@@ -42,13 +42,13 @@ export default function HeaderMobSticky({
               <div className="header-meta-info d-flex align-items-center justify-content-end ml-25">
                 <div className="header-meta m-0 d-flex align-items-center">
                   <div className="header-meta__social d-flex align-items-center">
-                    <button
+                    <Link
                       className="header-cart p-relative tp-cart-toggle"
-                      onClick={handleCartSidebar}
+                      href="/mycart"
                     >
                       <i className="fal fa-shopping-cart" />
                       <CartShow />
-                    </button>
+                    </Link>
                     <Link href="/sign-in">
                       <i className="fal fa-user" />
                     </Link>
