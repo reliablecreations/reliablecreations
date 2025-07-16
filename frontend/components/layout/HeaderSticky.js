@@ -3,11 +3,7 @@ import CartShow from "../elements/CartShow";
 import WishListShow from "../elements/WishListShow";
 import Search from "../store-front/search";
 
-export default function HeaderSticky({
-  scroll,
-  isCartSidebar,
-  handleCartSidebar,
-}) {
+export default function HeaderSticky({ scroll }) {
   return (
     <>
       <div

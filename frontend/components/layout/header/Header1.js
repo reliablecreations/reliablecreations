@@ -1,20 +1,12 @@
 "use client";
-import CartShow from "@/components/elements/CartShow";
-import WishListShow from "@/components/elements/WishListShow";
 import Link from "next/link";
-import { useState } from "react";
-import HeaderMobSticky from "../HeaderMobSticky";
 import HeaderSticky from "../HeaderSticky";
+import HeaderMobSticky from "../HeaderMobSticky";
 import HeaderTabSticky from "../HeaderTabSticky";
 import Search from "@/components/store-front/search";
+import CartShow from "@/components/elements/CartShow";
 
-export default function Header1({
-  scroll,
-  isMobileMenu,
-  handleMobileMenu,
-  isCartSidebar,
-  handleCartSidebar,
-}) {
+export default function Header1({ scroll, isMobileMenu, handleMobileMenu }) {
   // const [isToggled, setToggled] = useState(false);
   // const handleToggle = () => setToggled(!isToggled);
   return (
@@ -77,25 +69,9 @@ export default function Header1({
         </div>
         <div className="mt-20" />
       </header>
-      <HeaderSticky
-        scroll={scroll}
-        isCartSidebar={isCartSidebar}
-        handleCartSidebar={handleCartSidebar}
-      />
-      <HeaderTabSticky
-        scroll={scroll}
-        isMobileMenu={isMobileMenu}
-        handleMobileMenu={handleMobileMenu}
-        isCartSidebar={isCartSidebar}
-        handleCartSidebar={handleCartSidebar}
-      />
-      <HeaderMobSticky
-        scroll={scroll}
-        isMobileMenu={isMobileMenu}
-        handleMobileMenu={handleMobileMenu}
-        isCartSidebar={isCartSidebar}
-        handleCartSidebar={handleCartSidebar}
-      />
+      <HeaderSticky scroll={scroll} />
+      <HeaderTabSticky scroll={scroll} isMobileMenu={isMobileMenu} />
+      <HeaderMobSticky scroll={scroll} isMobileMenu={isMobileMenu} />
     </>
   );
 }

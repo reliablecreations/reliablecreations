@@ -5,8 +5,6 @@ export default function HeaderMobSticky({
   scroll,
   isMobileMenu,
   handleMobileMenu,
-  isCartSidebar,
-  handleCartSidebar,
 }) {
   return (
     <>

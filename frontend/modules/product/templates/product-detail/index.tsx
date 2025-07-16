@@ -1,52 +1,15 @@
 "use client";
-import Layout from "@/components/layout/Layout";
-// @ts-ignore
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { isEqual } from "lodash";
 import { HttpTypes } from "@medusajs/types";
+import { addToCart } from "@/lib/data/cart";
+import { useEffect, useMemo, useState } from "react";
+import Divider from "@/components/store-front/divider";
+import ProductPrice from "../../components/product-price";
 import ProductDescription from "../../components/product-desc";
 import OptionSelect from "../../components/product-actions/option-select";
-import Divider from "@/components/store-front/divider";
-import { isEqual } from "lodash";
-import ProductPrice from "../../components/product-price";
-import { addToCart } from "@/lib/data/cart";
 
 const country_code = "in";
-
-const swiperOptions = {
-  modules: [Autoplay, Pagination, Navigation],
-  slidesPerView: 5,
-  spaceBetween: 25,
-  autoplay: {
-    delay: 3500,
-  },
-  breakpoints: {
-    1400: {
-      slidesPerView: 5,
-    },
-    1200: {
-      slidesPerView: 5,
-    },
-    992: {
-      slidesPerView: 4,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    576: {
-      slidesPerView: 2,
-    },
-    0: {
-      slidesPerView: 1,
-    },
-  },
-  navigation: {
-    nextEl: ".tprelated__nxt",
-    prevEl: ".tprelated__prv",
-  },
-};
 
 interface ProductTemplateProps {
   data: HttpTypes.StoreProduct;
@@ -66,9 +29,7 @@ const ProductTemplate = ({ data }: ProductTemplateProps) => {
   const handleOnClick = (index) => {
     setActiveIndex(index);
   };
-
   const [quantity, setQuantity] = useState(1);
-  const [activeImage, setActiveImage] = useState(0);
   const [options, setOptions] = useState<Record<string, string | undefined>>(
     {}
   );
@@ -117,6 +78,7 @@ const ProductTemplate = ({ data }: ProductTemplateProps) => {
     if (selectedVariant && !selectedVariant.manage_inventory) {
       return true;
     }
+
     if (selectedVariant?.allow_backorder) {
       return true;
     }
@@ -169,7 +131,7 @@ const ProductTemplate = ({ data }: ProductTemplateProps) => {
 
   return (
     <>
-      <section className="product-area pt-80 pb-50">
+      <section className="product-area pt-10 pb-50">
         <div className="container">
           <div className="row">
             <div className="col-lg-5 col-md-12">
@@ -184,7 +146,7 @@ const ProductTemplate = ({ data }: ProductTemplateProps) => {
             <div className="col-lg-5 col-md-7">
               <div className="tpproduct-details__content tpproduct-details__sticky">
                 <div className="tpproduct-details__tag-area d-flex align-items-center mb-5">
-                  <span className="tpproduct-details__tag">Wooden</span>
+                  <span className="tpproduct-details__tag mb-2">Wooden</span>
                   {/* <div className="tpproduct-details__rating">
                       <Link href="#">
                         <i className="fas fa-star" />
@@ -205,7 +167,9 @@ const ProductTemplate = ({ data }: ProductTemplateProps) => {
                         data?.title?.slice(1)
                       : ""}
                   </h3>
-                  <span className="tpproduct-details__stock">In Stock</span>
+                  <span className="tpproduct-details__stock">
+                    {inStock ? "In Stock" : "Out of Stock"}
+                  </span>
                 </div>
                 <div className="tpproduct-details__pera">
                   <p>{data?.subtitle}</p>
@@ -220,8 +184,9 @@ const ProductTemplate = ({ data }: ProductTemplateProps) => {
                         type="number"
                         className="qty"
                         name="qty"
-                        defaultValue={1}
                         min={1}
+                        max={10}
+                        defaultValue={1}
                         onChange={(event) => {
                           if (!isNaN(parseInt(event.target.value))) {
                             setQuantity(parseInt(event.target.value));
@@ -304,23 +269,23 @@ const ProductTemplate = ({ data }: ProductTemplateProps) => {
                   })}
                 </div>
                 {/* <div className="tpproduct-details__information tpproduct-details__social">
-                  <p>Share:</p>
-                  <Link href="#">
-                    <i className="fab fa-facebook-f" />
-                  </Link>
-                  <Link href="#">
-                    <i className="fab fa-twitter" />
-                  </Link>
-                  <Link href="#">
-                    <i className="fab fa-behance" />
-                  </Link>
-                  <Link href="#">
-                    <i className="fab fa-youtube" />
-                  </Link>
-                  <Link href="#">
-                    <i className="fab fa-linkedin" />
-                  </Link>
-                </div> */}
+                    <p>Share:</p>
+                    <Link href="#">
+                      <i className="fab fa-facebook-f" />
+                    </Link>
+                    <Link href="#">
+                      <i className="fab fa-twitter" />
+                    </Link>
+                    <Link href="#">
+                      <i className="fab fa-behance" />
+                    </Link>
+                    <Link href="#">
+                      <i className="fab fa-youtube" />
+                    </Link>
+                    <Link href="#">
+                      <i className="fab fa-linkedin" />
+                    </Link>
+                  </div> */}
               </div>
             </div>
             <div className="col-lg-2 col-md-5">

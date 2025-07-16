@@ -6,8 +6,6 @@ export default function HeaderTabSticky({
   scroll,
   isMobileMenu,
   handleMobileMenu,
-  isCartSidebar,
-  handleCartSidebar,
 }) {
   return (
     <>
@@ -50,13 +48,13 @@ export default function HeaderTabSticky({
                   </form>
                 </div>
                 <div className="header-meta__social d-flex align-items-center ml-25">
-                  <button
+                  <Link
                     className="header-cart p-relative tp-cart-toggle"
-                    onClick={handleCartSidebar}
+                    href="/mycart"
                   >
                     <i className="fal fa-shopping-cart" />
                     <CartShow />
-                  </button>
+                  </Link>
                   <Link href="/sign-in">
                     <i className="fal fa-user" />
                   </Link>

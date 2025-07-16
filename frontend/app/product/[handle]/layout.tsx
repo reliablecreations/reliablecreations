@@ -7,7 +7,7 @@ export default function ProductLayout({
 }) {
   return (
     // @ts-ignore
-    <Layout headerStyle={3} footerStyle={1} breadcrumbTitle="Shop Details">
+    <Layout headerStyle={1} footerStyle={1}>
       {children}
     </Layout>
   );
