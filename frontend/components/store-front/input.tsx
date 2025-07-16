@@ -1,23 +1,30 @@
-import { Label } from "@medusajs/ui";
 import React, { useEffect, useImperativeHandle, useState } from "react";
 import styles from "./input.module.css";
 
-// import Eye from "@modules/common/icons/eye"
-// import EyeOff from "@modules/common/icons/eye-off"
-
-type InputProps = Omit<
-  Omit<React.InputHTMLAttributes<HTMLInputElement>, "size">,
-  "placeholder"
-> & {
+type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> & {
   label: string;
   errors?: Record<string, unknown>;
   touched?: Record<string, unknown>;
   name: string;
   topLabel?: string;
+  variant?: "default" | "outlined" | "filled";
 };
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ type, name, label, touched, required, topLabel, ...props }, ref) => {
+  (
+    {
+      type,
+      name,
+      label,
+      touched,
+      errors,
+      required,
+      topLabel,
+      variant = "default",
+      ...props
+    },
+    ref
+  ) => {
     const inputRef = React.useRef<HTMLInputElement>(null);
     const [showPassword, setShowPassword] = useState(false);
     const [inputType, setInputType] = useState(type);
@@ -35,36 +42,36 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     useImperativeHandle(ref, () => inputRef.current!);
 
     return (
-      <div className={styles.container}>
-        {topLabel && <Label className={styles.topLabel}>{topLabel}</Label>}
+      <div className={`${styles.container} ${styles[variant]}`}>
+        <label htmlFor={name} className={styles.label}>
+          {label}
+          {required && <span className={styles.required}>*</span>}
+        </label>
         <div className={styles.inputWrapper}>
           <input
             type={inputType}
             name={name}
-            placeholder=" "
+            id={name}
+            placeholder={props.placeholder}
             required={required}
             className={styles.input}
             {...props}
             ref={inputRef}
           />
-          <label
-            htmlFor={name}
-            onClick={() => inputRef.current?.focus()}
-            className={styles.label}
-          >
-            {label}
-            {required && <span className={styles.required}>*</span>}
-          </label>
           {type === "password" && (
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               className={styles.passwordButton}
+              aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? <Eye /> : <EyeOff />}
             </button>
           )}
         </div>
+        {touched && touched[name] && errors && errors[name] && (
+          <div className={styles.errorMessage}>{String(errors[name])}</div>
+        )}
       </div>
     );
   }
@@ -74,11 +81,11 @@ Input.displayName = "Input";
 
 export default Input;
 
-const Eye: React.FC<any> = ({
-  size = "20",
-  color = "currentColor",
-  ...attributes
-}) => {
+const Eye: React.FC<{
+  size?: string;
+  color?: string;
+  className?: string;
+}> = ({ size = "20", color = "currentColor", className, ...attributes }) => {
   return (
     <svg
       width={size}
@@ -86,6 +93,7 @@ const Eye: React.FC<any> = ({
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
       {...attributes}
     >
       <path
@@ -106,11 +114,11 @@ const Eye: React.FC<any> = ({
   );
 };
 
-const EyeOff: React.FC<any> = ({
-  size = "20",
-  color = "currentColor",
-  ...attributes
-}) => {
+const EyeOff: React.FC<{
+  size?: string;
+  color?: string;
+  className?: string;
+}> = ({ size = "20", color = "currentColor", className, ...attributes }) => {
   return (
     <svg
       width={size}
@@ -118,6 +126,7 @@ const EyeOff: React.FC<any> = ({
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
       {...attributes}
     >
       <path

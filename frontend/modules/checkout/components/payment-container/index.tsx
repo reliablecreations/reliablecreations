@@ -33,7 +33,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
         selectedPaymentOptionId === paymentProviderId
           ? styles.containerSelected
           : ""
-      }`}
+      } ${disabled ? styles.containerDisabled : ""}`}
     >
       <div className={styles.header}>
         <div className={styles.content}>

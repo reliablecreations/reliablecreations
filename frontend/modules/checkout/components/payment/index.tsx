@@ -165,21 +165,18 @@ const Payment = ({
             data-testid="payment-method-error-message"
           />
 
-          <Button
-            size="large"
+          <button
             className={styles.submitButton}
             onClick={handleSubmit}
-            isLoading={isLoading}
             disabled={
               (isStripe && !cardComplete) ||
               (!selectedPaymentMethod && !paidByGiftcard)
             }
             data-testid="submit-payment-button"
           >
-            {!activeSession && isStripeFunc(selectedPaymentMethod)
-              ? " Enter card details"
-              : "Continue to review"}
-          </Button>
+            {isLoading && <span className={styles.spinner}></span>}
+            Continue to review
+          </button>
         </div>
 
         <div className={isOpen ? styles.contentHidden : styles.content}>

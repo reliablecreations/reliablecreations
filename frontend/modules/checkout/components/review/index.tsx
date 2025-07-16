@@ -4,7 +4,6 @@ import { Heading, Text } from "@medusajs/ui";
 import styles from "./review.module.css";
 
 import PaymentButton from "../payment-button";
-import { RazorpayPaymentButton } from "../payment-button/razorpay-payment-button";
 import { useSearchParams } from "next/navigation";
 
 const Review = ({ cart }: { cart: any }) => {

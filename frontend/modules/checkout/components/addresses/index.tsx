@@ -89,7 +89,6 @@ const Addresses = ({
                 <Heading level="h2" className={styles.billingSection}>
                   Billing address
                 </Heading>
-
                 <BillingAddress cart={cart} />
               </div>
             )}
@@ -105,6 +104,7 @@ const Addresses = ({
         </form>
       ) : (
         <div>
+          {/* {JSON.stringify(cart)} */}
           <div className="text-small-regular">
             {cart && cart.shipping_address ? (
               <div className={styles.addressSummary}>

@@ -6,10 +6,11 @@ import { calculatePriceForShippingOption } from "@/lib/data/fulfillment";
 import { convertToLocale } from "@/lib/util/money";
 import { CheckCircleSolid, Loader } from "@medusajs/icons";
 import { HttpTypes } from "@medusajs/types";
-import { Button, Heading, Text } from "@medusajs/ui";
+import { Heading, Text } from "@medusajs/ui";
 import ErrorMessage from "@/modules/checkout/components/error-message";
 import Divider from "@/components/store-front/divider";
 import MedusaRadio from "@/modules/checkout/components/radio";
+import { SubmitButton } from "@/modules/checkout/components/submit-button";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./shipping.module.css";
@@ -186,16 +187,15 @@ const Shipping: React.FC<ShippingProps> = ({
             data-testid="delivery-option-error-message"
           />
 
-          <Button
-            size="large"
+          <button
             className={styles.submitButton}
             onClick={handleSubmit}
-            isLoading={isLoading}
-            disabled={!cart.shipping_methods?.[0]}
+            disabled={!cart.shipping_methods?.[0] || isLoading}
             data-testid="submit-delivery-option-button"
           >
+            {isLoading && <span className={styles.spinner}></span>}
             Continue to payment
-          </Button>
+          </button>
         </div>
       ) : (
         <div>
