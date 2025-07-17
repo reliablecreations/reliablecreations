@@ -1,0 +1,1 @@
+export { default as OrderCompletedTemplate } from "./templates/order-completed-template"; 
