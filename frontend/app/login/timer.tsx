@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { BiTime } from "react-icons/bi";
+import styles from "./form.module.css";
 
 interface TimerProps {
   loading: boolean;
@@ -32,19 +33,24 @@ const Timer: React.FC<TimerProps> = ({
   }, [otpTimeout, seconds]);
 
   return (
-    <button
-      type="submit"
-      className="w-full"
-      onClick={handleResend}
-      disabled={otpTimeout || loading}
-    >
-      Resent Otp in{" "}
-      {otpTimeout && (
-        <>
-          <BiTime /> {seconds}
-        </>
+    <div className={styles.timerContainer}>
+      {otpTimeout ? (
+        <div className={styles.timerDisplay}>
+          <i className="fal fa-clock"></i>
+          <span>Resend OTP in {seconds}s</span>
+        </div>
+      ) : (
+        <button
+          type="button"
+          className={`${styles.resendButton} tptrack__submition`}
+          onClick={handleResend}
+          disabled={loading}
+        >
+          {loading ? "Sending..." : "Resend OTP"}
+          <i className="fal fa-redo" />
+        </button>
       )}
-    </button>
+    </div>
   );
 };
 

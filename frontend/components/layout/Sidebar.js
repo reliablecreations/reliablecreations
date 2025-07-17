@@ -64,7 +64,7 @@ export default function Sidebar({ isMobileMenu, handleMobileMenu }) {
           </div>
         </div>
         <div className="tpsideinfo__account-link">
-          <Link href="/sign-in">
+          <Link href="/login">
             <i className="fal fa-user" /> Login
           </Link>
         </div>

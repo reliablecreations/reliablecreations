@@ -22,7 +22,7 @@ export default function Header5({
                 <div className="headertoplag ">
                   <div className="menu-top-social">
                     <Link href="/about">About Us</Link>
-                    <Link href="/sign-in">My account</Link>
+                    <Link href="/login">My account</Link>
                     <Link href="/wishlist">Wishlist </Link>
                     <Link href="/track">Order Tracking</Link>
                   </div>
@@ -105,7 +105,7 @@ export default function Header5({
                             <Link href="/cart">Cart</Link>
                           </li>
                           <li>
-                            <Link href="/sign-in">Sign In</Link>
+                            <Link href="/login">Sign In</Link>
                           </li>
                           <li>
                             <Link href="/checkout">Checkout</Link>
@@ -158,10 +158,10 @@ export default function Header5({
                                 <Link href="/checkout">Checkout</Link>
                               </li>
                               <li>
-                                <Link href="/sign-in">Sign In</Link>
+                                <Link href="/login">Sign In</Link>
                               </li>
                               <li>
-                                <Link href="/sign-in">Log In</Link>
+                                <Link href="/login">Log In</Link>
                               </li>
                             </ul>
                           </li>
@@ -212,7 +212,7 @@ export default function Header5({
                       <i className="fal fa-shopping-cart" />
                       <CartShow />
                     </button>
-                    <Link href="/sign-in">
+                    <Link href="/login">
                       <i className="fal fa-user" />
                     </Link>
                     <Link

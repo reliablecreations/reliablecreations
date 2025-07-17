@@ -56,7 +56,7 @@ export default function HeaderSticky({ scroll }) {
                           <Link href="/cart">Cart</Link>
                         </li>
                         <li>
-                          <Link href="/sign-in">Sign In</Link>
+                          <Link href="/login">Sign In</Link>
                         </li>
                         <li>
                           <Link href="/checkout">Checkout</Link>
@@ -87,7 +87,7 @@ export default function HeaderSticky({ scroll }) {
                     <i className="fal fa-shopping-cart" />
                     <CartShow />
                   </Link>
-                  <Link href="/sign-in">
+                  <Link href="/login">
                     <i className="fal fa-user" />
                   </Link>
                 </div>

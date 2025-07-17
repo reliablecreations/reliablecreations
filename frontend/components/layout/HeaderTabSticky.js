@@ -55,7 +55,7 @@ export default function HeaderTabSticky({
                     <i className="fal fa-shopping-cart" />
                     <CartShow />
                   </Link>
-                  <Link href="/sign-in">
+                  <Link href="/login">
                     <i className="fal fa-user" />
                   </Link>
                   <Link

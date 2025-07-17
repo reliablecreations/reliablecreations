@@ -140,7 +140,7 @@ export default function Header2({
                                 <Link href="/cart">Cart</Link>
                               </li>
                               <li>
-                                <Link href="/sign-in">Sign In</Link>
+                                <Link href="/login">Sign In</Link>
                               </li>
                               <li>
                                 <Link href="/checkout">Checkout</Link>
@@ -195,10 +195,10 @@ export default function Header2({
                                     <Link href="/checkout">Checkout</Link>
                                   </li>
                                   <li>
-                                    <Link href="/sign-in">Sign In</Link>
+                                    <Link href="/login">Sign In</Link>
                                   </li>
                                   <li>
-                                    <Link href="/sign-in">Log In</Link>
+                                    <Link href="/login">Log In</Link>
                                   </li>
                                 </ul>
                               </li>
@@ -269,7 +269,7 @@ export default function Header2({
                       <i className="fal fa-shopping-cart" />
                       <CartShow />
                     </button>
-                    <Link href="/sign-in">
+                    <Link href="/login">
                       <i className="fal fa-user" />
                     </Link>
                     <Link
