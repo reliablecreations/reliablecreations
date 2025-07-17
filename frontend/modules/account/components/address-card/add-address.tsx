@@ -15,6 +15,7 @@ import { SubmitButton } from "@/modules/checkout/components/submit-button";
 import { HttpTypes } from "@medusajs/types";
 import { addCustomerAddress } from "@/lib/data/customer";
 import { useFormState } from "react-dom";
+import styles from "./add-address.module.css";
 
 const AddAddress = ({
   region,
@@ -53,22 +54,22 @@ const AddAddress = ({
   return (
     <>
       <button
-        className="border border-ui-border-base rounded-rounded p-5 min-h-[220px] h-full w-full flex flex-col justify-between"
+        className={styles.addAddressButton}
         onClick={open}
         data-testid="add-address-button"
       >
-        <span className="text-base-semi">New address</span>
+        <span className={styles.addAddressText}>New address</span>
         <Plus />
       </button>
 
       <Modal isOpen={state} close={close} data-testid="add-address-modal">
         <Modal.Title>
-          <Heading className="mb-2">Add address</Heading>
+          <p className={styles.modalTitle}>Add address</p>
         </Modal.Title>
         <form action={formAction}>
           <Modal.Body>
-            <div className="flex flex-col gap-y-2">
-              <div className="grid grid-cols-2 gap-x-2">
+            <div className={styles.formContainer}>
+              <div className={styles.nameGrid}>
                 <Input
                   label="First name"
                   name="first_name"
@@ -103,7 +104,7 @@ const AddAddress = ({
                 autoComplete="address-line2"
                 data-testid="address-2-input"
               />
-              <div className="grid grid-cols-[144px_1fr] gap-x-2">
+              <div className={styles.postalCityGrid}>
                 <Input
                   label="Postal code"
                   name="postal_code"
@@ -140,21 +141,18 @@ const AddAddress = ({
               />
             </div>
             {formState.error && (
-              <div
-                className="text-rose-500 text-small-regular py-2"
-                data-testid="address-error"
-              >
+              <div className={styles.errorMessage} data-testid="address-error">
                 {formState.error}
               </div>
             )}
           </Modal.Body>
           <Modal.Footer>
-            <div className="flex gap-3 mt-6">
+            <div className={styles.footerContainer}>
               <Button
                 type="reset"
                 variant="secondary"
                 onClick={close}
-                className="h-10"
+                className={styles.footerButton}
                 data-testid="cancel-button"
               >
                 Cancel

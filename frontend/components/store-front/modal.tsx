@@ -23,15 +23,15 @@ const Modal = ({
 }: ModalProps) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-[75]" onClose={close}>
+      <Dialog as="div" className={styles.modalDialog} onClose={close}>
         <Transition.Child
           as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
+          enter={`${styles.transitionEaseOut}`}
+          enterFrom={styles.opacity0}
+          enterTo={styles.opacity100}
+          leave={`${styles.transitionEaseIn}`}
+          leaveFrom={styles.opacity100}
+          leaveTo={styles.opacity0}
         >
           <div className={styles.modalOverlay} />
         </Transition.Child>
@@ -44,12 +44,12 @@ const Modal = ({
           >
             <Transition.Child
               as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
+              enter={`${styles.transitionEaseOut}`}
+              enterFrom={`${styles.opacity0} ${styles.scale95}`}
+              enterTo={`${styles.opacity100} ${styles.scale100}`}
+              leave={`${styles.transitionEaseIn}`}
+              leaveFrom={`${styles.opacity100} ${styles.scale100}`}
+              leaveTo={`${styles.opacity0} ${styles.scale95}`}
             >
               <Dialog.Panel
                 data-testid={dataTestId}
@@ -78,8 +78,8 @@ const Title: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <Dialog.Title className={styles.title}>
-      <div className={styles.titleText}>{children}</div>
-      <div>
+      <div className="text-base-semi">{children}</div>
+      <div className={styles.titleCloseButton}>
         <button onClick={close} data-testid="close-modal-button">
           <BiX size={20} />
         </button>

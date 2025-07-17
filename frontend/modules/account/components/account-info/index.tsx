@@ -117,14 +117,14 @@ const AccountInfo = ({
           <div className={styles.formContainer}>
             <div>{children}</div>
             <div className={styles.buttonContainer}>
-              <Button
-                isLoading={pending}
+              <button
+                disabled={pending}
                 className={styles.saveButton}
                 type="submit"
                 data-testid="save-button"
               >
                 Save changes
-              </Button>
+              </button>
             </div>
           </div>
         </Disclosure.Panel>

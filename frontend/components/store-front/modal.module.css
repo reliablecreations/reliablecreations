@@ -9,7 +9,8 @@
 .modalContainer {
   position: fixed;
   inset: 0;
-  overflow-y: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .modalContent {
@@ -17,12 +18,19 @@
   min-height: 100%;
   height: 100%;
   justify-content: center;
-  padding: 1rem;
+  align-items: center;
+  padding: 0.5rem;
   text-align: center;
 }
 
 .modalContentCentered {
   align-items: center;
+}
+
+@media (max-height: 600px) {
+  .modalContentCentered {
+    align-items: flex-start;
+  }
 }
 
 .modalContentTop {
@@ -35,12 +43,13 @@
   justify-content: flex-start;
   width: 100%;
   transform: translateZ(0);
-  padding: 1.25rem;
+  padding: 1rem;
   text-align: left;
   vertical-align: middle;
   transition-property: all;
-  max-height: 75vh;
-  height: fit-content;
+  max-height: calc(100vh - 2rem);
+  min-height: fit-content;
+  overflow-y: auto;
 }
 
 .modalPanelSmall {
@@ -53,6 +62,14 @@
 
 .modalPanelLarge {
   max-width: 48rem;
+}
+
+@media (max-height: 600px) {
+  .modalPanelSmall,
+  .modalPanelMedium,
+  .modalPanelLarge {
+    max-width: calc(100vw - 1rem);
+  }
 }
 
 .modalPanelSearch {
@@ -74,8 +91,40 @@
   justify-content: space-between;
 }
 
+.titleCloseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleCloseButton button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.titleCloseButton button:hover {
+  background-color: #e5e7eb;
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+.titleCloseButton button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
 .titleText {
-  font-size: 1.25rem;
+  font-size: 10px !important;
   font-weight: 600;
 }
 
@@ -91,8 +140,10 @@
 }
 
 .body {
-  display: flex;
-  justify-content: center;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  max-height: calc(100vh - 8rem);
 }
 
 .footer {
@@ -100,4 +151,137 @@
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
+}
+
+/* MedusaJS-style button variants */
+.modalButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-height: 48px;
+  min-width: 120px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.modalButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.modalButton:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Primary variant */
+.modalButtonPrimary {
+  background-color: #007bff;
+  color: white;
+}
+
+.modalButtonPrimary:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.modalButtonPrimary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3);
+}
+
+/* Secondary variant (MedusaJS grayish tone) */
+.modalButtonSecondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.modalButtonSecondary:hover:not(:disabled) {
+  background-color: #545b62;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.modalButtonSecondary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(108, 117, 125, 0.3);
+}
+
+/* Transparent variant */
+.modalButtonTransparent {
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.modalButtonTransparent:hover:not(:disabled) {
+  background-color: #007bff;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.modalButtonTransparent:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3);
+}
+
+/* Danger variant */
+.modalButtonDanger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.modalButtonDanger:hover:not(:disabled) {
+  background-color: #c82333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.modalButtonDanger:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(220, 53, 69, 0.3);
+}
+
+/* New styles for replacing Tailwind classes */
+.modalDialog {
+  position: relative;
+  z-index: 75;
+}
+
+.transitionEaseOut {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.transitionEaseIn {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-duration: 200ms;
+}
+
+.opacity0 {
+  opacity: 0;
+}
+
+.opacity100 {
+  opacity: 1;
+}
+
+.scale95 {
+  transform: scale(0.95);
+}
+
+.scale100 {
+  transform: scale(1);
 }
