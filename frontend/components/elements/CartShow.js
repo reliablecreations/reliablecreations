@@ -17,9 +17,5 @@ export default function CartShow() {
       return acc + item.quantity;
     }, 0) || 0;
 
-  return (
-    <>
-      <span className="tp-product-count">{totalItems}</span>
-    </>
-  );
+  return <>{/* <span className="tp-product-count---">{totalItems}</span> */}</>;
 }

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import CartShow from "../elements/CartShow";
-import WishListShow from "../elements/WishListShow";
-
+import Search from "../store-front/search";
 export default function HeaderTabSticky({
   scroll,
   isMobileMenu,
@@ -37,16 +36,7 @@ export default function HeaderTabSticky({
             </div>
             <div className="col-lg-9 col-md-8">
               <div className="header-meta-info d-flex align-items-center justify-content-between">
-                <div className="header-search-bar">
-                  <form action="#">
-                    <div className="search-info p-relative">
-                      <button className="header-search-icon">
-                        <i className="fal fa-search" />
-                      </button>
-                      <input type="text" placeholder="Search products..." />
-                    </div>
-                  </form>
-                </div>
+                <Search />
                 <div className="header-meta__social d-flex align-items-center ml-25">
                   <Link
                     className="header-cart p-relative tp-cart-toggle"
@@ -57,13 +47,6 @@ export default function HeaderTabSticky({
                   </Link>
                   <Link href="/login">
                     <i className="fal fa-user" />
-                  </Link>
-                  <Link
-                    href="/wishlist"
-                    className="header-cart p-relative tp-cart-toggle"
-                  >
-                    <i className="fal fa-heart" />
-                    <WishListShow />
                   </Link>
                 </div>
               </div>
