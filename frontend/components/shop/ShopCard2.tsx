@@ -42,7 +42,20 @@ export default function ProductCard({
         </div>
         <div className="tpproduct__content-area">
           <h3 className="tpproduct__title mb-5">
-            <Link href={`/product/${product.handle}`}>{product.title}</Link>
+            <Link
+              href={`/product/${product.handle}`}
+              className="line-clamp-2"
+              style={{
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                minHeight: "2.5em", // ensures space for 2 lines
+              }}
+            >
+              {product.title}
+            </Link>
           </h3>
           <div className="tpproduct__priceinfo p-relative">
             <div className="tpproduct__ammount">
