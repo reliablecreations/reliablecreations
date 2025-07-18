@@ -38,3 +38,5 @@ export default async function Cart() {
     </Layout>
   );
 }
+
+export const revalidate = "dynamic";
