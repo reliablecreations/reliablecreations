@@ -15,28 +15,32 @@ const AccountLayout: React.FC<AccountLayoutProps> = ({
   children,
 }) => {
   return (
-    <div className={styles.container} data-testid="account-page">
-      <div className={styles.contentContainer}>
-        <div className={styles.mainGrid}>
-          <div>{customer && <AccountNav customer={customer} />}</div>
-          <div className={styles.mainContent}>{children}</div>
-        </div>
-        <div className={styles.footer}>
-          <div>
-            <h3 className={styles.footerTitle}>Got questions?</h3>
-            <span className={styles.footerText}>
-              You can find frequently asked questions and answers on our
-              customer service page.
-            </span>
-          </div>
-          <div>
-            <Link href="/contact" className={styles.footerLink}>
-              Customer Service
-            </Link>
-          </div>
-        </div>
+    <div
+  className={`${styles.container} px-4 sm:px-6 lg:px-8`}
+  data-testid="account-page"
+>
+  <div className={styles.contentContainer}>
+    <div className={styles.mainGrid}>
+      <div>{customer && <AccountNav customer={customer} />}</div>
+      <div className={styles.mainContent}>{children}</div>
+    </div>
+    <div className={styles.footer}>
+      <div>
+        <h3 className={styles.footerTitle}>Got questions?</h3>
+        <span className={styles.footerText}>
+          You can find frequently asked questions and answers on our
+          customer service page.
+        </span>
+      </div>
+      <div>
+        <Link href="/contact" className={styles.footerLink}>
+          Customer Service
+        </Link>
       </div>
     </div>
+  </div>
+</div>
+
   );
 };
 

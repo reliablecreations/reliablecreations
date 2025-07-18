@@ -5,7 +5,7 @@ import { sdk } from "@/lib/config";
 import { directLogin } from "@/lib/data/customer";
 import styles from "./form.module.css";
 
-// Firebase auth
+
 import {
   ConfirmationResult,
   RecaptchaVerifier,
@@ -138,7 +138,7 @@ export default function LoginForm() {
         )}
 
         {!showOtpView ? (
-          <div className="tptrack__btn">
+          <div className="tptrack__btn mb-20">
             <button
               type="button"
               disabled={loading}

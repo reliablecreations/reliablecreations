@@ -1,20 +1,24 @@
 .desktopView {
-  display: none;
-}
-
-@media (min-width: 640px) {
-  .desktopView {
-    display: block;
-  }
+  display: block;
+  width: 100%;
 }
 
 .header {
   font-size: 1.25rem;
   font-weight: 600;
   display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .header {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .signedInText {
@@ -45,9 +49,17 @@
 
 .statsRow {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 4rem;
+  gap: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .statsRow {
+    flex-direction: row;
+    gap: 4rem;
+  }
 }
 
 .statGroup {
@@ -99,18 +111,32 @@
 .orderContainer {
   background-color: #f9fafb;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  gap: 1rem;
   padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .orderContainer {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .orderInfo {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 1rem;
-  flex: 1;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
   font-size: 0.875rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .orderInfo {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
 }
 
 .orderLabel {
