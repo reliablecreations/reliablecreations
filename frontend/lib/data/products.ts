@@ -1,4 +1,7 @@
 import { sdk } from "../config"
+
+const currency_code = "inr"
+
 export const filterProducts = async ({
     q,
     minPrice = "0",
@@ -14,7 +17,7 @@ export const filterProducts = async ({
 }) => {
     const region_id = process.env.NEXT_PUBLIC_REGION_ID
     const response = await sdk.client.fetch<any>(
-        `/store/search?region_id=${region_id}&currency_code=usd&q=${q}&price_min=${minPrice}&price_max=${maxPrice}&category_handle=${category_handle}&offset=${(pageParam - 1) * 20
+        `/store/search?region_id=${region_id}&currency_code=${currency_code}&q=${q}&price_min=${minPrice}&price_max=${maxPrice}&category_handle=${category_handle}&offset=${(pageParam - 1) * 20
         }`,
         {
             cache: "no-cache",

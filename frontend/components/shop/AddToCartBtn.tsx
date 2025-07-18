@@ -32,6 +32,7 @@ const AddToCartButton = ({
   );
 
   const [isAdding, setIsAdding] = useState(false);
+  const [added, setAdded] = useState(false);
 
   // If there is only 1 variant, preselect the options
   useEffect(() => {
@@ -115,7 +116,24 @@ const AddToCartButton = ({
     });
 
     setIsAdding(false);
+    setAdded(true);
+
+    // Reset "Added to Cart" after 2 seconds
+    setTimeout(() => {
+      setAdded(false);
+    }, 2000);
   };
+
+  let buttonText = "";
+  if (!selectedVariant && !options) {
+    buttonText = "Select variant";
+  } else if (!inStock || !isValidVariant) {
+    buttonText = "Out of stock";
+  } else if (added) {
+    buttonText = "Added to Cart";
+  } else {
+    buttonText = "Add to Cart";
+  }
 
   return (
     <Button
@@ -125,17 +143,14 @@ const AddToCartButton = ({
         !selectedVariant ||
         !!disabled ||
         isAdding ||
-        !isValidVariant
+        !isValidVariant ||
+        added
       }
       className={styles.addToCartButton}
       data-testid="add-product-button"
     >
       <span className={isAdding ? styles.loadingText : ""}>
-        {!selectedVariant && !options
-          ? "Select variant"
-          : !inStock || !isValidVariant
-          ? "Out of stock"
-          : "Add to Cart"}
+        {buttonText}
         {isAdding && "..."}
       </span>
     </Button>

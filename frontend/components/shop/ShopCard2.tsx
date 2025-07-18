@@ -41,7 +41,7 @@ export default function ProductCard({
           </div>
         </div>
         <div className="tpproduct__content-area">
-          <h3 className="tpproduct__title mb-5 text-capitalize">
+          <h3 className="tpproduct__title mb-5">
             <Link href={`/product/${product.handle}`}>{product.title}</Link>
           </h3>
           <div className="tpproduct__priceinfo p-relative">
