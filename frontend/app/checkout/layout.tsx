@@ -30,12 +30,10 @@ export default function CheckoutLayout({
           <div className={styles.spacer} />
         </nav>
       </div>
-      <div
-        className={styles.checkoutContainer}
-        data-testid="checkout-container"
-      >
-        {children}
-      </div>
+    <div className={`${styles.checkoutContainer} px-4 md:px-8`} data-testid="checkout-container">
+  {children}
+</div>
+
     </div>
   );
 }

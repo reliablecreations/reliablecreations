@@ -1,0 +1,5 @@
+.wrapper {
+  padding: 1rem; /* 16px */
+  background-color: #fff; /* optional */
+  border-radius: 0.5rem; /* optional rounded corners */
+}

@@ -29,7 +29,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals }) => {
   } = totals;
 
   return (
-    <div className={styles.wrapper}>
+    <div className={ `${styles.wrapper} p-4 md:p-8`}>
       <div className={styles.itemGroup}>
         <div className={styles.row}>
           <span>Subtotal (excl. shipping and taxes)</span>

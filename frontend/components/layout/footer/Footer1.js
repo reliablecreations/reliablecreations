@@ -5,7 +5,7 @@ export default function Footer1() {
     <>
       <footer>
         <div className="footer-area theme-bg pt-65">
-          <div className="container">
+          <div className="container px-4">
             <div className="main-footer pb-15 mb-30">
               <div className="row">
                 <div className="col-lg-3 col-md-4 col-sm-6">
